@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core';
 import {HttpClient,HttpHeaders} from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import {environment} from '../../environments/environment';
 
-import {Users} from '../models/users';
+import {Users} from '../shared/models/user/users';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,7 @@ import {Users} from '../models/users';
 
 export class AuthenticationService {
 
- public baseURL:string="https://localhost:44350/api/Users/";
+ public baseURL=environment.baseURL;
  private currentUserSubject: BehaviorSubject<Users>;
  public currentUser: Observable<Users>;
 
